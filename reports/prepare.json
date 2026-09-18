@@ -1,0 +1,485 @@
+{
+  "dataset": "nvidia/Nemotron-PII",
+  "mapping_variant": "core",
+  "top_labels": [
+    "healthcare",
+    "finance",
+    "government",
+    "other"
+  ],
+  "counts": {
+    "splits": {
+      "train": {
+        "rows": 139998,
+        "uids": 69999,
+        "per_top": {
+          "healthcare": {
+            "rows": 7482,
+            "uids": 3741
+          },
+          "finance": {
+            "rows": 15422,
+            "uids": 7711
+          },
+          "government": {
+            "rows": 7028,
+            "uids": 3514
+          },
+          "other": {
+            "rows": 110066,
+            "uids": 55033
+          }
+        },
+        "per_locale": {
+          "intl": 69999,
+          "us": 69999
+        }
+      },
+      "dev": {
+        "rows": 29996,
+        "uids": 14998,
+        "per_top": {
+          "healthcare": {
+            "rows": 1602,
+            "uids": 801
+          },
+          "finance": {
+            "rows": 3304,
+            "uids": 1652
+          },
+          "government": {
+            "rows": 1506,
+            "uids": 753
+          },
+          "other": {
+            "rows": 23584,
+            "uids": 11792
+          }
+        },
+        "per_locale": {
+          "intl": 14998,
+          "us": 14998
+        }
+      },
+      "test": {
+        "rows": 30006,
+        "uids": 15003,
+        "per_top": {
+          "healthcare": {
+            "rows": 1604,
+            "uids": 802
+          },
+          "finance": {
+            "rows": 3306,
+            "uids": 1653
+          },
+          "government": {
+            "rows": 1508,
+            "uids": 754
+          },
+          "other": {
+            "rows": 23588,
+            "uids": 11794
+          }
+        },
+        "per_locale": {
+          "intl": 15003,
+          "us": 15003
+        }
+      }
+    },
+    "totals": {
+      "industry_rows": 42762,
+      "other_rows": 157238
+    }
+  },
+  "tier2_label_space": {
+    "per_industry": {
+      "healthcare": {
+        "tags": 135,
+        "train_rows": 7482,
+        "train_uids": 3741,
+        "support_uids": {
+          "min": 7,
+          "median": 25,
+          "max": 78,
+          "under_10": 3
+        }
+      },
+      "finance": {
+        "tags": 315,
+        "train_rows": 15422,
+        "train_uids": 7711,
+        "support_uids": {
+          "min": 8,
+          "median": 21,
+          "max": 144,
+          "under_10": 7
+        }
+      },
+      "government": {
+        "tags": 185,
+        "train_rows": 7028,
+        "train_uids": 3514,
+        "support_uids": {
+          "min": 2,
+          "median": 18,
+          "max": 90,
+          "under_10": 9
+        }
+      }
+    },
+    "total_tags": 635
+  },
+  "unseen_tags": {
+    "dev": {
+      "healthcare": {
+        "rows": 1602,
+        "unseen_rows": 0,
+        "unseen_rate": 0.0
+      },
+      "finance": {
+        "rows": 3304,
+        "unseen_rows": 0,
+        "unseen_rate": 0.0
+      },
+      "government": {
+        "rows": 1506,
+        "unseen_rows": 0,
+        "unseen_rate": 0.0
+      }
+    },
+    "test": {
+      "healthcare": {
+        "rows": 1604,
+        "unseen_rows": 0,
+        "unseen_rate": 0.0
+      },
+      "finance": {
+        "rows": 3306,
+        "unseen_rows": 0,
+        "unseen_rate": 0.0
+      },
+      "government": {
+        "rows": 1508,
+        "unseen_rows": 0,
+        "unseen_rate": 0.0
+      }
+    }
+  },
+  "signals": {
+    "sample_rows": 4000,
+    "tag_verbatim_in_text": 0.716,
+    "tag_recovered_from_heading": 0.2455,
+    "domain_named_in_description": 0.9277,
+    "lexical_only_tier2_top1": {
+      "healthcare": {
+        "heading": 0.5621,
+        "verbatim": 0.6171,
+        "combined": 0.6222
+      },
+      "finance": {
+        "heading": 0.5558,
+        "verbatim": 0.6817,
+        "combined": 0.7165
+      },
+      "government": {
+        "heading": 0.7182,
+        "verbatim": 0.6004,
+        "combined": 0.7551
+      }
+    }
+  },
+  "domains": {
+    "Insurance": {
+      "rows": 6308,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Finance": {
+      "rows": 3990,
+      "top": "finance",
+      "hard_negative": false
+    },
+    "Technology": {
+      "rows": 3988,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Cybersecurity": {
+      "rows": 3890,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Banking": {
+      "rows": 3840,
+      "top": "finance",
+      "hard_negative": false
+    },
+    "User Account and Transaction Services": {
+      "rows": 3794,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Information Technology": {
+      "rows": 3786,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Brokerage": {
+      "rows": 3762,
+      "top": "finance",
+      "hard_negative": false
+    },
+    "Identity Management": {
+      "rows": 3750,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Access Control Systems": {
+      "rows": 3728,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Identity Verification Services": {
+      "rows": 3722,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Credit": {
+      "rows": 3714,
+      "top": "finance",
+      "hard_negative": false
+    },
+    "Telecommunications": {
+      "rows": 3662,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Disability": {
+      "rows": 3634,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Life": {
+      "rows": 3632,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Healthcare": {
+      "rows": 3630,
+      "top": "healthcare",
+      "hard_negative": false
+    },
+    "Marketing": {
+      "rows": 3622,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Consulting": {
+      "rows": 3620,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Social Science": {
+      "rows": 3576,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Services": {
+      "rows": 3574,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Government": {
+      "rows": 3566,
+      "top": "government",
+      "hard_negative": false
+    },
+    "Human Resources": {
+      "rows": 3566,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Health": {
+      "rows": 3558,
+      "top": "healthcare",
+      "hard_negative": false
+    },
+    "Civil Rights": {
+      "rows": 3546,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Ecommerce": {
+      "rows": 3514,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Healthcare Providers": {
+      "rows": 3500,
+      "top": "healthcare",
+      "hard_negative": false
+    },
+    "Investment": {
+      "rows": 3496,
+      "top": "finance",
+      "hard_negative": false
+    },
+    "Transportation": {
+      "rows": 3482,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Advertising": {
+      "rows": 3464,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Casualty": {
+      "rows": 3464,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Travel": {
+      "rows": 3458,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Retail": {
+      "rows": 3394,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Elections": {
+      "rows": 3392,
+      "top": "government",
+      "hard_negative": false
+    },
+    "Non-Profit": {
+      "rows": 3348,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Legal": {
+      "rows": 3342,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Media": {
+      "rows": 3340,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Biotechnology": {
+      "rows": 3334,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Automotive": {
+      "rows": 3330,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Logistics": {
+      "rows": 3320,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Real Estate": {
+      "rows": 3292,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Energy": {
+      "rows": 3280,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Fitness": {
+      "rows": 3258,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Mortgage": {
+      "rows": 3230,
+      "top": "finance",
+      "hard_negative": false
+    },
+    "Education": {
+      "rows": 3200,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Sports": {
+      "rows": 3190,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Construction": {
+      "rows": 3164,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Entertainment": {
+      "rows": 3158,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Environmental": {
+      "rows": 3146,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Pharmaceuticals": {
+      "rows": 3120,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Public Safety": {
+      "rows": 3084,
+      "top": "government",
+      "hard_negative": false
+    },
+    "Hospitality": {
+      "rows": 3076,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Automobile": {
+      "rows": 3066,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Property": {
+      "rows": 2930,
+      "top": "other",
+      "hard_negative": true
+    },
+    "Agriculture": {
+      "rows": 2812,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Product": {
+      "rows": 2812,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Consumer Goods": {
+      "rows": 2766,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Manufacturing": {
+      "rows": 2558,
+      "top": "other",
+      "hard_negative": false
+    },
+    "Chemicals": {
+      "rows": 2222,
+      "top": "other",
+      "hard_negative": false
+    }
+  }
+}
