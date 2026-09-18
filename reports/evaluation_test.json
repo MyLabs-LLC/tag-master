@@ -1,0 +1,639 @@
+{
+  "headline": {
+    "rows": 30006,
+    "tier1_accuracy": 0.97384,
+    "tier1_macro_f1": 0.94097,
+    "tier2_conditional_accuracy": 0.90957,
+    "end_to_end_exact_match": 0.95611,
+    "end_to_end_industry_rows_only": 0.83375
+  },
+  "tier1_confusion": {
+    "labels": [
+      "healthcare",
+      "finance",
+      "government",
+      "other"
+    ],
+    "matrix": [
+      [
+        1425,
+        1,
+        11,
+        167
+      ],
+      [
+        1,
+        3117,
+        10,
+        178
+      ],
+      [
+        10,
+        15,
+        1341,
+        142
+      ],
+      [
+        104,
+        99,
+        47,
+        23338
+      ]
+    ],
+    "per_class": {
+      "healthcare": {
+        "support": 1604,
+        "recall": 0.8884,
+        "precision": 0.92532,
+        "f1": 0.90649
+      },
+      "finance": {
+        "support": 3306,
+        "recall": 0.94283,
+        "precision": 0.96442,
+        "f1": 0.9535
+      },
+      "government": {
+        "support": 1508,
+        "recall": 0.88926,
+        "precision": 0.95174,
+        "f1": 0.91944
+      },
+      "other": {
+        "support": 23588,
+        "recall": 0.9894,
+        "precision": 0.97956,
+        "f1": 0.98446
+      }
+    }
+  },
+  "per_industry": {
+    "healthcare": {
+      "rows": 1604,
+      "tier1_recall": 0.8884,
+      "tier2_conditional_accuracy": 0.89614,
+      "end_to_end": 0.79613,
+      "sub_tags": 135
+    },
+    "finance": {
+      "rows": 3306,
+      "tier1_recall": 0.94283,
+      "tier2_conditional_accuracy": 0.90215,
+      "end_to_end": 0.85057,
+      "sub_tags": 315
+    },
+    "government": {
+      "rows": 1508,
+      "tier1_recall": 0.88926,
+      "tier2_conditional_accuracy": 0.94109,
+      "end_to_end": 0.83687,
+      "sub_tags": 185
+    }
+  },
+  "by_locale": {
+    "intl": {
+      "rows": 15003,
+      "tier1_accuracy": 0.97401,
+      "end_to_end": 0.95694
+    },
+    "us": {
+      "rows": 15003,
+      "tier1_accuracy": 0.97367,
+      "end_to_end": 0.95528
+    }
+  },
+  "by_format": {
+    "structured": {
+      "rows": 14712,
+      "tier1_accuracy": 0.98117,
+      "end_to_end": 0.96928
+    },
+    "unstructured": {
+      "rows": 15294,
+      "tier1_accuracy": 0.96678,
+      "end_to_end": 0.94344
+    }
+  },
+  "coverage": {
+    "tier1": [
+      {
+        "coverage": 0.0526,
+        "accuracy": 1.0,
+        "threshold": 0.999967
+      },
+      {
+        "coverage": 0.1053,
+        "accuracy": 1.0,
+        "threshold": 0.999923
+      },
+      {
+        "coverage": 0.1579,
+        "accuracy": 1.0,
+        "threshold": 0.999868
+      },
+      {
+        "coverage": 0.2105,
+        "accuracy": 1.0,
+        "threshold": 0.999797
+      },
+      {
+        "coverage": 0.2631,
+        "accuracy": 1.0,
+        "threshold": 0.999707
+      },
+      {
+        "coverage": 0.3158,
+        "accuracy": 1.0,
+        "threshold": 0.999593
+      },
+      {
+        "coverage": 0.3684,
+        "accuracy": 1.0,
+        "threshold": 0.99944
+      },
+      {
+        "coverage": 0.421,
+        "accuracy": 0.99992,
+        "threshold": 0.99923
+      },
+      {
+        "coverage": 0.4737,
+        "accuracy": 0.99993,
+        "threshold": 0.998946
+      },
+      {
+        "coverage": 0.5263,
+        "accuracy": 0.99975,
+        "threshold": 0.998557
+      },
+      {
+        "coverage": 0.579,
+        "accuracy": 0.99977,
+        "threshold": 0.997971
+      },
+      {
+        "coverage": 0.6316,
+        "accuracy": 0.99979,
+        "threshold": 0.997112
+      },
+      {
+        "coverage": 0.6842,
+        "accuracy": 0.99961,
+        "threshold": 0.995739
+      },
+      {
+        "coverage": 0.7369,
+        "accuracy": 0.99941,
+        "threshold": 0.99355
+      },
+      {
+        "coverage": 0.7895,
+        "accuracy": 0.99886,
+        "threshold": 0.98915
+      },
+      {
+        "coverage": 0.8421,
+        "accuracy": 0.9981,
+        "threshold": 0.979212
+      },
+      {
+        "coverage": 0.8947,
+        "accuracy": 0.99572,
+        "threshold": 0.950897
+      },
+      {
+        "coverage": 0.9474,
+        "accuracy": 0.99057,
+        "threshold": 0.843898
+      },
+      {
+        "coverage": 1.0,
+        "accuracy": 0.97384,
+        "threshold": 0.030714
+      }
+    ],
+    "end_to_end": [
+      {
+        "coverage": 0.0526,
+        "accuracy": 1.0,
+        "threshold": 0.999945
+      },
+      {
+        "coverage": 0.1053,
+        "accuracy": 1.0,
+        "threshold": 0.999887
+      },
+      {
+        "coverage": 0.1579,
+        "accuracy": 1.0,
+        "threshold": 0.999815
+      },
+      {
+        "coverage": 0.2105,
+        "accuracy": 1.0,
+        "threshold": 0.999723
+      },
+      {
+        "coverage": 0.2631,
+        "accuracy": 1.0,
+        "threshold": 0.999608
+      },
+      {
+        "coverage": 0.3158,
+        "accuracy": 1.0,
+        "threshold": 0.999453
+      },
+      {
+        "coverage": 0.3684,
+        "accuracy": 1.0,
+        "threshold": 0.999243
+      },
+      {
+        "coverage": 0.421,
+        "accuracy": 1.0,
+        "threshold": 0.998957
+      },
+      {
+        "coverage": 0.4737,
+        "accuracy": 0.99993,
+        "threshold": 0.998564
+      },
+      {
+        "coverage": 0.5263,
+        "accuracy": 0.99987,
+        "threshold": 0.997973
+      },
+      {
+        "coverage": 0.579,
+        "accuracy": 0.99971,
+        "threshold": 0.997114
+      },
+      {
+        "coverage": 0.6316,
+        "accuracy": 0.99953,
+        "threshold": 0.99572
+      },
+      {
+        "coverage": 0.6842,
+        "accuracy": 0.99912,
+        "threshold": 0.993582
+      },
+      {
+        "coverage": 0.7369,
+        "accuracy": 0.99828,
+        "threshold": 0.989603
+      },
+      {
+        "coverage": 0.7895,
+        "accuracy": 0.99738,
+        "threshold": 0.980979
+      },
+      {
+        "coverage": 0.8421,
+        "accuracy": 0.99549,
+        "threshold": 0.959661
+      },
+      {
+        "coverage": 0.8947,
+        "accuracy": 0.99113,
+        "threshold": 0.899384
+      },
+      {
+        "coverage": 0.9474,
+        "accuracy": 0.98002,
+        "threshold": 0.725649
+      },
+      {
+        "coverage": 1.0,
+        "accuracy": 0.95611,
+        "threshold": 0.030714
+      }
+    ],
+    "tier1_at_0.95": {
+      "coverage": 1.0,
+      "accuracy": 0.97384,
+      "threshold": 0.030714
+    },
+    "end_to_end_at_0.90": {
+      "coverage": 1.0,
+      "accuracy": 0.95611,
+      "threshold": 0.030714
+    }
+  },
+  "split": "test",
+  "model": {
+    "lambda": 1.5,
+    "tier2_weights": {
+      "healthcare": {
+        "linear": 3.0,
+        "rocchio": 0.0,
+        "prototype": 0.5,
+        "heading": 0.2,
+        "verbatim": 0.5
+      },
+      "finance": {
+        "linear": 2.0,
+        "rocchio": 0.5,
+        "prototype": 0.75,
+        "heading": 0.2,
+        "verbatim": 0.5
+      },
+      "government": {
+        "linear": 3.0,
+        "rocchio": 0.25,
+        "prototype": 0.75,
+        "heading": 0.25,
+        "verbatim": 0.25
+      }
+    },
+    "total_sub_tags": 635
+  },
+  "canonicalization": {
+    "granularity_tradeoff": [
+      {
+        "threshold": 0.5,
+        "tags_before": 635,
+        "tags_after": 635,
+        "tier2_accuracy": 0.90215
+      },
+      {
+        "threshold": 0.35,
+        "tags_before": 635,
+        "tags_after": 633,
+        "tier2_accuracy": 0.90402
+      },
+      {
+        "threshold": 0.25,
+        "tags_before": 635,
+        "tags_after": 628,
+        "tier2_accuracy": 0.90527
+      },
+      {
+        "threshold": 0.18,
+        "tags_before": 635,
+        "tags_after": 621,
+        "tier2_accuracy": 0.90994
+      },
+      {
+        "threshold": 0.12,
+        "tags_before": 635,
+        "tags_after": 601,
+        "tier2_accuracy": 0.91508
+      },
+      {
+        "threshold": 0.08,
+        "tags_before": 635,
+        "tags_after": 575,
+        "tier2_accuracy": 0.91976
+      }
+    ],
+    "raw_granularity": {
+      "tags": 635,
+      "tier2_accuracy": 0.90215
+    },
+    "recommended": {
+      "threshold": 0.08,
+      "tags_after": 575,
+      "tier2_accuracy": 0.91976,
+      "merged_clusters": {
+        "healthcare": [
+          [
+            "bic code document",
+            "swift code document"
+          ],
+          [
+            "blood test report",
+            "medical blood test result"
+          ],
+          [
+            "consultation note",
+            "outpatient visit note"
+          ],
+          [
+            "credit card information",
+            "debit card information"
+          ],
+          [
+            "diagnosi report",
+            "medical diagnosi"
+          ],
+          [
+            "health education brochure",
+            "patient education material"
+          ],
+          [
+            "health history",
+            "medical history",
+            "medical record"
+          ],
+          [
+            "health history form",
+            "medical history form"
+          ],
+          [
+            "imaging report",
+            "medical imaging report"
+          ],
+          [
+            "pathology report",
+            "pathology summary"
+          ],
+          [
+            "patient assessment",
+            "physical examination note"
+          ]
+        ],
+        "finance": [
+          [
+            "account transfer",
+            "budget management"
+          ],
+          [
+            "affidavit of no encumbrance",
+            "affidavit of non mortgage"
+          ],
+          [
+            "bank service",
+            "financial service"
+          ],
+          [
+            "bank statement",
+            "personal banking"
+          ],
+          [
+            "banking product",
+            "financial product"
+          ],
+          [
+            "banking service",
+            "personal solution",
+            "transaction history"
+          ],
+          [
+            "banking solution",
+            "retail solution"
+          ],
+          [
+            "checking account",
+            "financial advice"
+          ],
+          [
+            "checkout form snapshot",
+            "transaction receipt"
+          ],
+          [
+            "commercial product",
+            "corporate product"
+          ],
+          [
+            "consumer lending profile",
+            "credit review document"
+          ],
+          [
+            "credit application",
+            "credit management"
+          ],
+          [
+            "credit approval letter",
+            "credit product"
+          ],
+          [
+            "credit card replacement form",
+            "debit card replacement form"
+          ],
+          [
+            "credit score",
+            "credit score report"
+          ],
+          [
+            "financial statement",
+            "investment banking"
+          ],
+          [
+            "investment criteria",
+            "investment service"
+          ],
+          [
+            "investment performance report",
+            "performance report"
+          ],
+          [
+            "investment policy",
+            "retirement planning"
+          ],
+          [
+            "investment portfolio",
+            "investment product"
+          ],
+          [
+            "market analysi",
+            "market analysi report"
+          ],
+          [
+            "market report",
+            "market trend"
+          ],
+          [
+            "marriage certificate",
+            "mortgage agreement"
+          ],
+          [
+            "mortgage product",
+            "mortgage service"
+          ],
+          [
+            "payment receipt",
+            "payment schedule"
+          ],
+          [
+            "personal product",
+            "saving account"
+          ],
+          [
+            "prequalification form",
+            "social security application"
+          ],
+          [
+            "profit and loss",
+            "profit and loss statement"
+          ],
+          [
+            "retail banking",
+            "withdrawal request"
+          ],
+          [
+            "tax return",
+            "tax return form e g irs 1040"
+          ],
+          [
+            "wealth product",
+            "wealth solution"
+          ]
+        ],
+        "government": [
+          [
+            "ballot request form",
+            "voter absentee ballot request",
+            "voter absentee request form"
+          ],
+          [
+            "campaign finance disclosure",
+            "candidate campaign disclosure"
+          ],
+          [
+            "candidate endorsement document",
+            "candidate endorsement letter"
+          ],
+          [
+            "candidate qualification document",
+            "candidate qualification form"
+          ],
+          [
+            "censu response form",
+            "petition"
+          ],
+          [
+            "election day checklist",
+            "election day operation plan"
+          ],
+          [
+            "election day result",
+            "election result report"
+          ],
+          [
+            "election day schedule",
+            "election day voter information"
+          ],
+          [
+            "emergency medical supplie audit",
+            "quality assurance report"
+          ],
+          [
+            "emergency medical supplie inspection",
+            "emergency medical supplie maintenance"
+          ],
+          [
+            "emergency medical supplie storage",
+            "emergency supplie inventory"
+          ],
+          [
+            "employment verification",
+            "employment verification letter"
+          ],
+          [
+            "incident report",
+            "safety incident summary"
+          ],
+          [
+            "voter education guide",
+            "voter education material"
+          ],
+          [
+            "voter registration",
+            "voter registration form"
+          ]
+        ]
+      }
+    }
+  }
+}

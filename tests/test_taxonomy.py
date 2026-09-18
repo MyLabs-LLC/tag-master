@@ -98,6 +98,27 @@ def test_normalize_tag_preserves_double_s():
     assert normalize_tag("Address Verification") == "address verification"
 
 
+@pytest.mark.parametrize(
+    "raw,expected",
+    [
+        ("Medical Diagnosis", "medical diagnosis"),
+        ("Census Response Form", "census response form"),
+        ("Fund Prospectus", "fund prospectus"),
+        ("Market Analysis Report", "market analysis report"),
+        ("Arthritis Management Plan", "arthritis management plan"),
+        ("Affidavit of Marital Status", "affidavit of marital status"),
+    ],
+)
+def test_normalize_tag_leaves_false_plurals_intact(raw, expected):
+    # "diagnosis" is not the plural of "diagnosi".
+    assert normalize_tag(raw) == expected
+
+
+def test_normalize_tag_still_folds_real_plurals():
+    assert normalize_tag("Medical Records") == normalize_tag("Medical Record")
+    assert normalize_tag("Claim Forms") == "claim form"
+
+
 def test_tag_tokens_drops_only_structural_words():
     assert tag_tokens("affidavit of no unpaid fee") == frozenset(
         {"affidavit", "no", "unpaid", "fee"}

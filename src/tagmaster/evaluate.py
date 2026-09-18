@@ -290,6 +290,8 @@ def run_evaluate(cfg: Config, split: str = "test", with_canonicalization: bool =
         "tier2_weights": {k: v.weights for k, v in bundle.tier2.items()},
         "total_sub_tags": bundle.vocab.total,
     }
+    report["tier1_errors_by_domain"] = group_errors_by_domain(frame, pred)
+    report["error_samples"] = error_samples(bundle, frame, pred)
     if with_canonicalization:
         report["canonicalization"] = canonicalization_report(cfg, bundle, frame, t2_lp)
 

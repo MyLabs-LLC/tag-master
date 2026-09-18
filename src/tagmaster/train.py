@@ -255,7 +255,13 @@ def train_tier2(
         }
         weights, ensemble_acc = _coordinate_ascent(channels, ydv, head, grid)
         head.weights = weights
-        head.calibrate(head.combine(channels, weights), np.maximum(ydv, 0))
+        # Rows carrying a tag the training split never showed count as errors in
+        # the accuracy above (correctly -- they are unpredictable), but they have
+        # no valid target, so they are excluded from calibration rather than
+        # being folded into an arbitrary class.
+        combined = head.combine(channels, weights)
+        labelled = ydv >= 0
+        head.calibrate(combined[labelled], ydv[labelled])
         _log(f"  ensemble: dev {ensemble_acc:.4f}  weights={weights}")
 
         heads[top] = head

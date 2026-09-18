@@ -139,7 +139,10 @@ class OnnxEmbedder:
         if dest.exists():
             return np.load(dest)
         vecs = self.encode(texts, progress=progress)
-        tmp = dest.with_suffix(".npy.tmp")
+        # The temp name must itself end in `.npy`, because np.save appends that
+        # suffix when it is missing and the rename would then target a
+        # non-existent path.
+        tmp = dest.with_name(dest.stem + ".partial.npy")
         np.save(tmp, vecs)
         os.replace(tmp, dest)
         return vecs

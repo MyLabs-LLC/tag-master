@@ -19,6 +19,19 @@ _WS = re.compile(r"\s+")
 # comparing two tag names for near-duplicate detection.
 _NOISE_TOKENS = frozenset({"a", "an", "the", "of", "for", "and", "to", "in", "on"})
 
+# Word endings that only look like plurals. Without these, "diagnosis" becomes
+# "diagnosi" and "census" becomes "censu", which is harmless for matching but
+# makes every report and prediction look mangled.
+_FALSE_PLURAL_ENDINGS = ("ss", "is", "us", "as", "ys")
+
+
+def _singularize(token: str) -> str:
+    if len(token) <= 3 or not token.endswith("s"):
+        return token
+    if token.endswith(_FALSE_PLURAL_ENDINGS):
+        return token
+    return token[:-1]
+
 
 class TaxonomyError(RuntimeError):
     """Raised when the configured mapping and the observed data disagree."""
@@ -36,12 +49,7 @@ def normalize_tag(raw: str) -> str:
     s = _WS.sub(" ", s).strip()
     if not s:
         return ""
-    out = []
-    for tok in s.split(" "):
-        if len(tok) > 3 and tok.endswith("s") and not tok.endswith("ss"):
-            tok = tok[:-1]
-        out.append(tok)
-    return " ".join(out)
+    return " ".join(_singularize(tok) for tok in s.split(" "))
 
 
 def tag_tokens(tag: str) -> frozenset[str]:

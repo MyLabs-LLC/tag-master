@@ -1,0 +1,163 @@
+{
+  "tier1": {
+    "C_grid": {
+      "0.5": 0.96866,
+      "1.0": 0.97253,
+      "2.0": 0.97453,
+      "4.0": 0.97426,
+      "8.0": 0.97356
+    },
+    "selected_C": 2.0,
+    "dev_accuracy": 0.9745299373249766
+  },
+  "tier2": {
+    "healthcare": {
+      "tags": 135,
+      "train_rows": 7482,
+      "dev_rows": 1602,
+      "C_grid": {
+        "1.0": 0.88077,
+        "2.0": 0.88702,
+        "4.0": 0.88889,
+        "8.0": 0.88826
+      },
+      "selected_C": 4.0,
+      "channel_only_dev_accuracy": {
+        "linear": 0.88889,
+        "rocchio": 0.82022,
+        "prototype": 0.51998,
+        "heading": 0.55181,
+        "verbatim": 0.59675
+      },
+      "ensemble_weights": {
+        "linear": 3.0,
+        "rocchio": 0.0,
+        "prototype": 0.5,
+        "heading": 0.2,
+        "verbatim": 0.5
+      },
+      "ensemble_dev_accuracy": 0.8995,
+      "temperature": 2.6241
+    },
+    "finance": {
+      "tags": 315,
+      "train_rows": 15422,
+      "dev_rows": 3304,
+      "C_grid": {
+        "1.0": 0.88257,
+        "2.0": 0.88438,
+        "4.0": 0.88438,
+        "8.0": 0.88408
+      },
+      "selected_C": 2.0,
+      "channel_only_dev_accuracy": {
+        "linear": 0.88438,
+        "rocchio": 0.79661,
+        "prototype": 0.46852,
+        "heading": 0.54843,
+        "verbatim": 0.68341
+      },
+      "ensemble_weights": {
+        "linear": 2.0,
+        "rocchio": 0.5,
+        "prototype": 0.75,
+        "heading": 0.2,
+        "verbatim": 0.5
+      },
+      "ensemble_dev_accuracy": 0.9095,
+      "temperature": 2.1418
+    },
+    "government": {
+      "tags": 185,
+      "train_rows": 7028,
+      "dev_rows": 1506,
+      "C_grid": {
+        "1.0": 0.93758,
+        "2.0": 0.94024,
+        "4.0": 0.94024,
+        "8.0": 0.93891
+      },
+      "selected_C": 2.0,
+      "channel_only_dev_accuracy": {
+        "linear": 0.94024,
+        "rocchio": 0.89973,
+        "prototype": 0.59495,
+        "heading": 0.70784,
+        "verbatim": 0.59363
+      },
+      "ensemble_weights": {
+        "linear": 3.0,
+        "rocchio": 0.25,
+        "prototype": 0.75,
+        "heading": 0.25,
+        "verbatim": 0.25
+      },
+      "ensemble_dev_accuracy": 0.95086,
+      "temperature": 2.6241
+    }
+  },
+  "hierarchy": {
+    "lambda": 1.5,
+    "grid": {
+      "0.0": {
+        "tier1_accuracy": 0.9745299373249766,
+        "end_to_end": 0.9582944392585678,
+        "industry_end_to_end": 0.8488771054273238
+      },
+      "0.1": {
+        "tier1_accuracy": 0.9745966128817176,
+        "end_to_end": 0.9583944525936792,
+        "industry_end_to_end": 0.8484092326887087
+      },
+      "0.2": {
+        "tier1_accuracy": 0.9748633151086812,
+        "end_to_end": 0.9586611548206427,
+        "industry_end_to_end": 0.8477854023705552
+      },
+      "0.3": {
+        "tier1_accuracy": 0.9749299906654221,
+        "end_to_end": 0.9587611681557541,
+        "industry_end_to_end": 0.8476294447910169
+      },
+      "0.5": {
+        "tier1_accuracy": 0.9748633151086812,
+        "end_to_end": 0.9589278570476063,
+        "industry_end_to_end": 0.846849656893325
+      },
+      "0.75": {
+        "tier1_accuracy": 0.9748966528870516,
+        "end_to_end": 0.9592278970529404,
+        "industry_end_to_end": 0.8460698689956332
+      },
+      "1.0": {
+        "tier1_accuracy": 0.9749633284437925,
+        "end_to_end": 0.9594612615015335,
+        "industry_end_to_end": 0.8452900810979413
+      },
+      "1.5": {
+        "tier1_accuracy": 0.9749299906654221,
+        "end_to_end": 0.9598279770636085,
+        "industry_end_to_end": 0.8440424204616345
+      }
+    }
+  },
+  "feature_spaces": {
+    "tier1": {
+      "profile": "tier1",
+      "word_features": 300000,
+      "char_features": 0,
+      "embedding_dim": 384,
+      "dimension": 300384
+    },
+    "tier2": {
+      "profile": "tier2",
+      "word_features": 230826,
+      "char_features": 220331,
+      "embedding_dim": 384,
+      "dimension": 451541
+    }
+  },
+  "label_space": {
+    "total_tags": 635
+  }
+}
