@@ -1,0 +1,204 @@
+# Taxonomy for the two-tier industry tagger.
+#
+# nvidia/Nemotron-PII labels every document with a free-text `domain` (58 distinct
+# values across the two shipped splits) and a free-text `document_type`. Tier 1
+# collapses `domain` into four classes; tier 2 predicts the `document_type`
+# sub-tag within the predicted industry.
+#
+# The shipped train/test splits use near-disjoint `domain` vocabularies (only
+# `Insurance` appears in both), so `Healthcare`/`Government`/`Finance` occur only
+# in train while test substitutes `Health`, `Banking`, `Public Safety`, and so on.
+# Both splits are pooled and re-split on `uid`; the mapping below is what makes
+# the pooled labels coherent.
+
+dataset:
+  repo_id: nvidia/Nemotron-PII
+  revision: main
+
+# Tier-1 label space. `other` is the implicit fourth class and is never listed
+# explicitly: any domain absent from the three lists below maps to it.
+mapping_variant: core
+
+industries:
+  healthcare:
+    - Healthcare
+    - Health
+    - Healthcare Providers
+  finance:
+    - Finance
+    - Banking
+    - Credit
+    - Brokerage
+    - Investment
+    - Mortgage
+  government:
+    - Government
+    - Public Safety
+    - Elections
+
+other_label: other
+
+# Every domain present in the dataset. Used to assert that the mapping stays in
+# sync with the data: `prepare` fails loudly if the parquet contains a domain
+# that is not listed here, rather than silently dumping it into `other`.
+known_domains:
+  - Access Control Systems
+  - Advertising
+  - Agriculture
+  - Automobile
+  - Automotive
+  - Banking
+  - Biotechnology
+  - Brokerage
+  - Casualty
+  - Chemicals
+  - Civil Rights
+  - Construction
+  - Consulting
+  - Consumer Goods
+  - Credit
+  - Cybersecurity
+  - Disability
+  - Ecommerce
+  - Education
+  - Elections
+  - Energy
+  - Entertainment
+  - Environmental
+  - Finance
+  - Fitness
+  - Government
+  - Health
+  - Healthcare
+  - Healthcare Providers
+  - Hospitality
+  - Human Resources
+  - Identity Management
+  - Identity Verification Services
+  - Information Technology
+  - Insurance
+  - Investment
+  - Legal
+  - Life
+  - Logistics
+  - Manufacturing
+  - Marketing
+  - Media
+  - Mortgage
+  - Non-Profit
+  - Pharmaceuticals
+  - Product
+  - Property
+  - Public Safety
+  - Real Estate
+  - Retail
+  - Services
+  - Social Science
+  - Sports
+  - Technology
+  - Telecommunications
+  - Transportation
+  - Travel
+  - User Account and Transaction Services
+
+# Domains that stay in `other` but sit adjacent to an industry, so they generate
+# most of the tier-1 boundary errors. Listed here to keep the decision auditable
+# and to let the tier-1 trainer up-weight them as hard negatives.
+hard_negative_domains:
+  government:
+    - Legal
+    - Civil Rights
+    - Non-Profit
+    - Environmental
+    - Human Resources
+    - Education
+    - Social Science
+  healthcare:
+    - Pharmaceuticals
+    - Biotechnology
+    - Disability
+    - Fitness
+    - Life
+  finance:
+    - Insurance
+    - Casualty
+    - Property
+    - Real Estate
+    - User Account and Transaction Services
+
+split:
+  # Fractions are over distinct `uid`s, never over rows: each record appears
+  # twice (locale `us` and `intl`) under one `uid`, so a row-level split would
+  # leak a near-duplicate of every test document into train.
+  train: 0.70
+  dev: 0.15
+  test: 0.15
+  seed: 20240917
+  # Stratify the uid-grouped split by these row attributes so the small
+  # industries and both locales stay proportionally represented.
+  stratify_by: [top, locale, document_format]
+
+features:
+  heading_chars: 400
+
+  embedding:
+    enabled: true
+    repo_id: Xenova/all-MiniLM-L6-v2
+    onnx_path: onnx/model.onnx
+    max_tokens: 256
+    batch_size: 64
+    threads: 4
+    # Dense block is scaled before being concatenated to the L2-normalised
+    # sparse block so 384 dense dimensions do not dominate under one shared
+    # regularisation strength.
+    scale: 0.6
+
+  # Two profiles rather than one shared feature space. Tier 1 is a topical
+  # 4-class problem over all 140k training rows, where words suffice and
+  # character n-grams would cost ~700M nonzeros. Tier 2 discriminates between
+  # near-duplicate form names within one industry (at most 15k rows), where
+  # sub-word shape carries real signal and the matrices stay small.
+  tier1:
+    word_chars: 2500
+    word_ngram_max: 2
+    word_min_df: 3
+    word_max_features: 300000
+    char_ngram: null
+    use_embeddings: true
+
+  tier2:
+    word_chars: 2500
+    word_ngram_max: 2
+    word_min_df: 2
+    word_max_features: 300000
+    char_ngram: [3, 5]
+    char_chars: 1200
+    char_min_df: 3
+    char_max_features: 300000
+    use_embeddings: true
+
+tier1:
+  # Hard negatives get this multiplier on top of balanced class weights.
+  hard_negative_weight: 1.5
+  C_grid: [0.5, 1.0, 2.0, 4.0, 8.0]
+
+tier2:
+  C_grid: [1.0, 2.0, 4.0, 8.0]
+  # Ensemble members: discriminative head, Rocchio centroid, heading matcher,
+  # verbatim matcher, and the label-as-text prototype scorer. Searched by
+  # multi-start coordinate ascent, not exhaustively.
+  ensemble_weight_grid: [0.0, 0.1, 0.2, 0.35, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0]
+
+hierarchy:
+  # score(top, tag) = log P(top|x) + lambda * log P(tag|x, top)
+  lambda_grid: [0.0, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0, 1.5]
+
+canonicalize:
+  # Merge only tags the model empirically cannot separate. Thresholds are on
+  # symmetric dev-set confusion mass.
+  thresholds: [0.5, 0.35, 0.25, 0.18, 0.12, 0.08]
+  # Complete linkage: every cross-cluster pair must clear threshold *
+  # linkage_ratio, so a single strong link cannot drag in tags that were never
+  # confused with each other. This is what stops merges from chaining.
+  linkage_ratio: 0.5
+  max_cluster_size: 8
