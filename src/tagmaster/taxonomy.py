@@ -30,6 +30,10 @@ def _singularize(token: str) -> str:
         return token
     if token.endswith(_FALSE_PLURAL_ENDINGS):
         return token
+    # supplies -> supply, policies -> policy. Stripping the bare "s" would give
+    # "supplie", which also fails to match the singular form "supply".
+    if len(token) > 4 and token.endswith("ies"):
+        return token[:-3] + "y"
     return token[:-1]
 
 

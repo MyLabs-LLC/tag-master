@@ -18,7 +18,12 @@ ConfigOpt = typer.Option(None, "--config", "-c", help="Path to taxonomy.yaml.")
 @app.command()
 def prepare(
     config: Optional[Path] = ConfigOpt,
-    rebuild: bool = typer.Option(False, help="Re-download and re-split instead of using caches."),
+    rebuild: bool = typer.Option(
+        False,
+        help="Re-split from the parquet instead of reusing the cache. Required "
+        "after any change to the domain mapping or tag normalisation, since "
+        "both are baked into the cached split.",
+    ),
 ) -> None:
     """Download the dataset, build uid-grouped splits, derive the tier-2 labels."""
     from .prepare import run_prepare

@@ -26,18 +26,18 @@
         "linear": 0.88889,
         "rocchio": 0.82022,
         "prototype": 0.51998,
-        "heading": 0.55181,
-        "verbatim": 0.59675
+        "heading": 0.54931,
+        "verbatim": 0.58989
       },
       "ensemble_weights": {
-        "linear": 3.0,
+        "linear": 1.5,
         "rocchio": 0.0,
-        "prototype": 0.5,
+        "prototype": 0.2,
         "heading": 0.2,
-        "verbatim": 0.5
+        "verbatim": 0.2
       },
       "ensemble_dev_accuracy": 0.8995,
-      "temperature": 2.6241
+      "temperature": 1.289
     },
     "finance": {
       "tags": 315,
@@ -54,18 +54,18 @@
         "linear": 0.88438,
         "rocchio": 0.79661,
         "prototype": 0.46852,
-        "heading": 0.54843,
-        "verbatim": 0.68341
+        "heading": 0.54964,
+        "verbatim": 0.67373
       },
       "ensemble_weights": {
-        "linear": 2.0,
-        "rocchio": 0.5,
-        "prototype": 0.75,
-        "heading": 0.2,
-        "verbatim": 0.5
+        "linear": 3.0,
+        "rocchio": 3.0,
+        "prototype": 0.2,
+        "heading": 0.1,
+        "verbatim": 0.75
       },
-      "ensemble_dev_accuracy": 0.9095,
-      "temperature": 2.1418
+      "ensemble_dev_accuracy": 0.9092,
+      "temperature": 3.5586
     },
     "government": {
       "tags": 185,
@@ -82,8 +82,8 @@
         "linear": 0.94024,
         "rocchio": 0.89973,
         "prototype": 0.59495,
-        "heading": 0.70784,
-        "verbatim": 0.59363
+        "heading": 0.70651,
+        "verbatim": 0.5923
       },
       "ensemble_weights": {
         "linear": 3.0,
@@ -101,43 +101,43 @@
     "grid": {
       "0.0": {
         "tier1_accuracy": 0.9745299373249766,
-        "end_to_end": 0.9582944392585678,
-        "industry_end_to_end": 0.8488771054273238
+        "end_to_end": 0.9583277770369383,
+        "industry_end_to_end": 0.8490330630068621
       },
       "0.1": {
-        "tier1_accuracy": 0.9745966128817176,
-        "end_to_end": 0.9583944525936792,
-        "industry_end_to_end": 0.8484092326887087
+        "tier1_accuracy": 0.9746299506600881,
+        "end_to_end": 0.9584611281504201,
+        "industry_end_to_end": 0.8487211478477854
       },
       "0.2": {
         "tier1_accuracy": 0.9748633151086812,
-        "end_to_end": 0.9586611548206427,
-        "industry_end_to_end": 0.8477854023705552
+        "end_to_end": 0.9586944925990132,
+        "industry_end_to_end": 0.8479413599500936
       },
       "0.3": {
-        "tier1_accuracy": 0.9749299906654221,
+        "tier1_accuracy": 0.9748633151086812,
         "end_to_end": 0.9587611681557541,
-        "industry_end_to_end": 0.8476294447910169
+        "industry_end_to_end": 0.8477854023705552
       },
       "0.5": {
-        "tier1_accuracy": 0.9748633151086812,
-        "end_to_end": 0.9589278570476063,
-        "industry_end_to_end": 0.846849656893325
+        "tier1_accuracy": 0.9747633017735698,
+        "end_to_end": 0.9588611814908654,
+        "industry_end_to_end": 0.8471615720524017
       },
       "0.75": {
-        "tier1_accuracy": 0.9748966528870516,
+        "tier1_accuracy": 0.974996666222163,
         "end_to_end": 0.9592278970529404,
-        "industry_end_to_end": 0.8460698689956332
+        "industry_end_to_end": 0.8463817841547099
       },
       "1.0": {
-        "tier1_accuracy": 0.9749633284437925,
-        "end_to_end": 0.9594612615015335,
-        "industry_end_to_end": 0.8452900810979413
+        "tier1_accuracy": 0.9749299906654221,
+        "end_to_end": 0.9593279103880518,
+        "industry_end_to_end": 0.845601996257018
       },
       "1.5": {
-        "tier1_accuracy": 0.9749299906654221,
-        "end_to_end": 0.9598279770636085,
-        "industry_end_to_end": 0.8440424204616345
+        "tier1_accuracy": 0.9750633417789039,
+        "end_to_end": 0.9598613148419789,
+        "industry_end_to_end": 0.8446662507797879
       }
     }
   },

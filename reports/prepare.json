@@ -169,24 +169,24 @@
   },
   "signals": {
     "sample_rows": 4000,
-    "tag_verbatim_in_text": 0.716,
-    "tag_recovered_from_heading": 0.2455,
+    "tag_verbatim_in_text": 0.7137,
+    "tag_recovered_from_heading": 0.2442,
     "domain_named_in_description": 0.9277,
     "lexical_only_tier2_top1": {
       "healthcare": {
         "heading": 0.5621,
-        "verbatim": 0.6171,
+        "verbatim": 0.613,
         "combined": 0.6222
       },
       "finance": {
-        "heading": 0.5558,
-        "verbatim": 0.6817,
-        "combined": 0.7165
+        "heading": 0.5553,
+        "verbatim": 0.6724,
+        "combined": 0.7155
       },
       "government": {
-        "heading": 0.7182,
-        "verbatim": 0.6004,
-        "combined": 0.7551
+        "heading": 0.7172,
+        "verbatim": 0.5994,
+        "combined": 0.7541
       }
     }
   },

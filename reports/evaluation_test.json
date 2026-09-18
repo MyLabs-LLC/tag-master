@@ -1,11 +1,11 @@
 {
   "headline": {
     "rows": 30006,
-    "tier1_accuracy": 0.97384,
-    "tier1_macro_f1": 0.94097,
-    "tier2_conditional_accuracy": 0.90957,
+    "tier1_accuracy": 0.97414,
+    "tier1_macro_f1": 0.94163,
+    "tier2_conditional_accuracy": 0.90823,
     "end_to_end_exact_match": 0.95611,
-    "end_to_end_industry_rows_only": 0.83375
+    "end_to_end_industry_rows_only": 0.83422
   },
   "tier1_confusion": {
     "labels": [
@@ -16,16 +16,16 @@
     ],
     "matrix": [
       [
-        1425,
+        1431,
         1,
         11,
-        167
+        161
       ],
       [
         1,
-        3117,
+        3123,
         10,
-        178
+        172
       ],
       [
         10,
@@ -34,24 +34,24 @@
         142
       ],
       [
-        104,
-        99,
+        105,
+        101,
         47,
-        23338
+        23335
       ]
     ],
     "per_class": {
       "healthcare": {
         "support": 1604,
-        "recall": 0.8884,
-        "precision": 0.92532,
-        "f1": 0.90649
+        "recall": 0.89214,
+        "precision": 0.92502,
+        "f1": 0.90828
       },
       "finance": {
         "support": 3306,
-        "recall": 0.94283,
-        "precision": 0.96442,
-        "f1": 0.9535
+        "recall": 0.94465,
+        "precision": 0.96389,
+        "f1": 0.95417
       },
       "government": {
         "support": 1508,
@@ -61,24 +61,24 @@
       },
       "other": {
         "support": 23588,
-        "recall": 0.9894,
-        "precision": 0.97956,
-        "f1": 0.98446
+        "recall": 0.98927,
+        "precision": 0.98005,
+        "f1": 0.98464
       }
     }
   },
   "per_industry": {
     "healthcare": {
       "rows": 1604,
-      "tier1_recall": 0.8884,
-      "tier2_conditional_accuracy": 0.89614,
-      "end_to_end": 0.79613,
+      "tier1_recall": 0.89214,
+      "tier2_conditional_accuracy": 0.89448,
+      "end_to_end": 0.798,
       "sub_tags": 135
     },
     "finance": {
       "rows": 3306,
-      "tier1_recall": 0.94283,
-      "tier2_conditional_accuracy": 0.90215,
+      "tier1_recall": 0.94465,
+      "tier2_conditional_accuracy": 0.90042,
       "end_to_end": 0.85057,
       "sub_tags": 315
     },
@@ -93,24 +93,24 @@
   "by_locale": {
     "intl": {
       "rows": 15003,
-      "tier1_accuracy": 0.97401,
-      "end_to_end": 0.95694
+      "tier1_accuracy": 0.97427,
+      "end_to_end": 0.95701
     },
     "us": {
       "rows": 15003,
-      "tier1_accuracy": 0.97367,
-      "end_to_end": 0.95528
+      "tier1_accuracy": 0.97401,
+      "end_to_end": 0.95521
     }
   },
   "by_format": {
     "structured": {
       "rows": 14712,
-      "tier1_accuracy": 0.98117,
+      "tier1_accuracy": 0.98144,
       "end_to_end": 0.96928
     },
     "unstructured": {
       "rows": 15294,
-      "tier1_accuracy": 0.96678,
+      "tier1_accuracy": 0.96711,
       "end_to_end": 0.94344
     }
   },
@@ -189,7 +189,7 @@
       {
         "coverage": 0.7895,
         "accuracy": 0.99886,
-        "threshold": 0.98915
+        "threshold": 0.989149
       },
       {
         "coverage": 0.8421,
@@ -198,25 +198,25 @@
       },
       {
         "coverage": 0.8947,
-        "accuracy": 0.99572,
-        "threshold": 0.950897
+        "accuracy": 0.99575,
+        "threshold": 0.95094
       },
       {
         "coverage": 0.9474,
-        "accuracy": 0.99057,
-        "threshold": 0.843898
+        "accuracy": 0.99061,
+        "threshold": 0.844513
       },
       {
         "coverage": 1.0,
-        "accuracy": 0.97384,
-        "threshold": 0.030714
+        "accuracy": 0.97414,
+        "threshold": 0.04689
       }
     ],
     "end_to_end": [
       {
         "coverage": 0.0526,
         "accuracy": 1.0,
-        "threshold": 0.999945
+        "threshold": 0.999946
       },
       {
         "coverage": 0.1053,
@@ -231,93 +231,93 @@
       {
         "coverage": 0.2105,
         "accuracy": 1.0,
-        "threshold": 0.999723
+        "threshold": 0.999722
       },
       {
         "coverage": 0.2631,
         "accuracy": 1.0,
-        "threshold": 0.999608
+        "threshold": 0.999606
       },
       {
         "coverage": 0.3158,
         "accuracy": 1.0,
-        "threshold": 0.999453
+        "threshold": 0.999451
       },
       {
         "coverage": 0.3684,
         "accuracy": 1.0,
-        "threshold": 0.999243
+        "threshold": 0.99924
       },
       {
         "coverage": 0.421,
         "accuracy": 1.0,
-        "threshold": 0.998957
+        "threshold": 0.998951
       },
       {
         "coverage": 0.4737,
         "accuracy": 0.99993,
-        "threshold": 0.998564
+        "threshold": 0.998558
       },
       {
         "coverage": 0.5263,
-        "accuracy": 0.99987,
-        "threshold": 0.997973
+        "accuracy": 0.99994,
+        "threshold": 0.997959
       },
       {
         "coverage": 0.579,
         "accuracy": 0.99971,
-        "threshold": 0.997114
+        "threshold": 0.997097
       },
       {
         "coverage": 0.6316,
-        "accuracy": 0.99953,
-        "threshold": 0.99572
+        "accuracy": 0.99958,
+        "threshold": 0.995705
       },
       {
         "coverage": 0.6842,
-        "accuracy": 0.99912,
-        "threshold": 0.993582
+        "accuracy": 0.99907,
+        "threshold": 0.993562
       },
       {
         "coverage": 0.7369,
-        "accuracy": 0.99828,
-        "threshold": 0.989603
+        "accuracy": 0.99824,
+        "threshold": 0.989523
       },
       {
         "coverage": 0.7895,
         "accuracy": 0.99738,
-        "threshold": 0.980979
+        "threshold": 0.980914
       },
       {
         "coverage": 0.8421,
         "accuracy": 0.99549,
-        "threshold": 0.959661
+        "threshold": 0.959087
       },
       {
         "coverage": 0.8947,
-        "accuracy": 0.99113,
-        "threshold": 0.899384
+        "accuracy": 0.99136,
+        "threshold": 0.8993
       },
       {
         "coverage": 0.9474,
-        "accuracy": 0.98002,
-        "threshold": 0.725649
+        "accuracy": 0.9803,
+        "threshold": 0.726056
       },
       {
         "coverage": 1.0,
         "accuracy": 0.95611,
-        "threshold": 0.030714
+        "threshold": 0.04689
       }
     ],
     "tier1_at_0.95": {
       "coverage": 1.0,
-      "accuracy": 0.97384,
-      "threshold": 0.030714
+      "accuracy": 0.97414,
+      "threshold": 0.04689
     },
     "end_to_end_at_0.90": {
       "coverage": 1.0,
       "accuracy": 0.95611,
-      "threshold": 0.030714
+      "threshold": 0.04689
     }
   },
   "split": "test",
@@ -325,18 +325,18 @@
     "lambda": 1.5,
     "tier2_weights": {
       "healthcare": {
-        "linear": 3.0,
+        "linear": 1.5,
         "rocchio": 0.0,
-        "prototype": 0.5,
+        "prototype": 0.2,
         "heading": 0.2,
-        "verbatim": 0.5
+        "verbatim": 0.2
       },
       "finance": {
-        "linear": 2.0,
-        "rocchio": 0.5,
-        "prototype": 0.75,
-        "heading": 0.2,
-        "verbatim": 0.5
+        "linear": 3.0,
+        "rocchio": 3.0,
+        "prototype": 0.2,
+        "heading": 0.1,
+        "verbatim": 0.75
       },
       "government": {
         "linear": 3.0,
@@ -348,55 +348,423 @@
     },
     "total_sub_tags": 635
   },
+  "tier1_errors_by_domain": {
+    "Government": {
+      "errors": 94,
+      "predicted_as": {
+        "other": 76,
+        "healthcare": 3,
+        "finance": 15
+      }
+    },
+    "Healthcare Providers": {
+      "errors": 78,
+      "predicted_as": {
+        "other": 77,
+        "finance": 1
+      }
+    },
+    "Healthcare": {
+      "errors": 64,
+      "predicted_as": {
+        "other": 53,
+        "government": 11
+      }
+    },
+    "Public Safety": {
+      "errors": 60,
+      "predicted_as": {
+        "other": 53,
+        "healthcare": 7
+      }
+    },
+    "Mortgage": {
+      "errors": 48,
+      "predicted_as": {
+        "other": 39,
+        "government": 9
+      }
+    },
+    "Insurance": {
+      "errors": 46,
+      "predicted_as": {
+        "government": 8,
+        "healthcare": 37,
+        "finance": 1
+      }
+    },
+    "Credit": {
+      "errors": 37,
+      "predicted_as": {
+        "other": 37
+      }
+    },
+    "Banking": {
+      "errors": 35,
+      "predicted_as": {
+        "other": 33,
+        "healthcare": 1,
+        "government": 1
+      }
+    },
+    "Health": {
+      "errors": 31,
+      "predicted_as": {
+        "other": 31
+      }
+    },
+    "Finance": {
+      "errors": 29,
+      "predicted_as": {
+        "other": 29
+      }
+    },
+    "Pharmaceuticals": {
+      "errors": 25,
+      "predicted_as": {
+        "healthcare": 25
+      }
+    },
+    "Brokerage": {
+      "errors": 24,
+      "predicted_as": {
+        "other": 24
+      }
+    },
+    "Identity Management": {
+      "errors": 23,
+      "predicted_as": {
+        "healthcare": 13,
+        "government": 2,
+        "finance": 8
+      }
+    },
+    "Ecommerce": {
+      "errors": 22,
+      "predicted_as": {
+        "finance": 22
+      }
+    },
+    "Manufacturing": {
+      "errors": 13,
+      "predicted_as": {
+        "finance": 12,
+        "government": 1
+      }
+    },
+    "Elections": {
+      "errors": 13,
+      "predicted_as": {
+        "other": 13
+      }
+    },
+    "Property": {
+      "errors": 13,
+      "predicted_as": {
+        "finance": 13
+      }
+    },
+    "Life": {
+      "errors": 12,
+      "predicted_as": {
+        "finance": 6,
+        "healthcare": 6
+      }
+    },
+    "Travel": {
+      "errors": 11,
+      "predicted_as": {
+        "government": 11
+      }
+    },
+    "Casualty": {
+      "errors": 11,
+      "predicted_as": {
+        "government": 9,
+        "healthcare": 2
+      }
+    }
+  },
+  "error_samples": [
+    {
+      "gold_industry": "government",
+      "gold_domain": "Government",
+      "gold_sub_tag": "health insurance enrollment",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.6209,
+      "text": "### Health Insurance Enrollment Form\n\n**Personal Information**\n\nFirst Name: Sophie\nLast Name: Yorton\nDate of Birth: 1954-12-10\nSocial Security Number: 443-74-4351\n\n**Address Information**\n\nStreet Address: 27 Frontage Road\nState: OK\n\n**Emplo"
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "rehabilitation plan",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.7967,
+      "text": "Benjamin Mohamed, born on 1985-04-02, with the medical record number PT-123456-B, has been assigned the health plan beneficiary number AET-7892-1357-46. Benjamin Mohamed is a Wiccan, and his social security number is 123-45-6789. His curren"
+    },
+    {
+      "gold_industry": "government",
+      "gold_domain": "Government",
+      "gold_sub_tag": "disability insurance claim",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.629,
+      "text": "**Government Disability Insurance Claim**\n\n**Personal Information**\n\nName: Jason\n\nSocial Security Number: 254-63-3803\n\nBiometric Identifier: L48920173659\n\n**Employment History**\n\n[To be completed by the claimant]\n\n**Medical Details**\n\nMedic"
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "inpatient admission form",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.2363,
+      "text": "Patient Name: Andrew Barber\nDate of Birth: 2003-06-30\nAge: 22\nMedical Record Number: 230315-1245\nAddress: 367 Duvall Valley Road North\nReligious Belief: Muslim\n\nAndrew Barber, born on 2003-06-30, is a 22 year old male. He has a medical reco"
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Insurance",
+      "gold_sub_tag": "accident report",
+      "predicted_industry": "government",
+      "predicted_sub_tag": "accident report",
+      "confidence": 0.6369,
+      "text": "On the date of 20300715 at the time of 19:23:45, an accident occurred at the coordinate 36.1748,-95.7785. The driver involved was Frank Brown, who was driving a vehicle with the vehicle identifier KM8JH4L29F9001234 and license plate LKF-739"
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Pharmaceuticals",
+      "gold_sub_tag": "prescription",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "prescription",
+      "confidence": 0.9594,
+      "text": "Phillip Medley, born on 1979-04-19, residing at 61 Centerville Road Unit 504, Oklahoma City, OK, presents with the following prescription details: The prescriber is Dr. Smith. The medication prescribed is 20mg of Lisinopril, with a quantity"
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "health insurance form",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.1916,
+      "text": "Please complete the following form:\n\nPatient Name: Mary Wells\n\nDate of Birth: 1966-01-21\n\nMedical Record Number: 2023-5678-231\n\nHealth Plan Beneficiary Number: G172934568\n\nBiometric Identifier: BIO-5728941632\n\nPlease review the above inform"
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Insurance",
+      "gold_sub_tag": "health insurance claim",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "insurance claim form",
+      "confidence": 0.6145,
+      "text": "**Health Insurance Claim Form**\n\n**Policyholder Information**\n- First Name: Omar\n- Last Name: Rios\n- Medical Record Number: CHI-00125487\n- Health Plan Beneficiary Number: WA-0005823694\n- State: PR\n\n**Service Details**\n- Date of Service: 15/"
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Identity Management",
+      "gold_sub_tag": "school health form",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "emergency information form",
+      "confidence": 0.5999,
+      "text": "This form is for Henry Bond, a male student born on 1994-11-06. His medical record number is 0012349578. In case of an emergency, please contact us at 319-999-0866."
+    },
+    {
+      "gold_industry": "finance",
+      "gold_domain": "Finance",
+      "gold_sub_tag": "insurance policy",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.5523,
+      "text": "**Insurance Policy**\n\n**Policyholder Information**\n\n- **First Name**: Nicholas\n- **Last Name**: Smith\n- **Account Number**: FR72 1234 5678 9012 3456 789\n- **Health Plan Beneficiary Number**: 7Y92-KP1-MX46\n\n**Coverage Details**\n\n- **Age**: 6"
+    },
+    {
+      "gold_industry": "finance",
+      "gold_domain": "Finance",
+      "gold_sub_tag": "lease agreement",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.7559,
+      "text": "This Lease Agreement is entered into between LuminFin, the lessor, and Robert Beaumont, the lessee. The property to be leased is located at 7 Stratton Ln Unit 151, Los Angeles, California, 90001. The lease term is for one year, with a month"
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "temporary password notification",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.8431,
+      "text": "Hi Dawn Devore,\n\nThis is to notify you that a temporary password has been generated for your account. Your temporary password is F7g#K9p@Mx2Lq5. This password will expire at 2023-08-14T10:38:58. Please use this temporary password to log in "
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Identity Management",
+      "gold_sub_tag": "hospital admission form",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "emergency contact information",
+      "confidence": 0.9585,
+      "text": "Patient Name: Michael Larimer. The patient, born on 1993-11-06, resides at 116 Manton Road, Ninety Six, 29666. The patient's gender is female. For any emergencies, please contact the patient at 864-413-8015 or via email at email."
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Ecommerce",
+      "gold_sub_tag": "credit limit request",
+      "predicted_industry": "finance",
+      "predicted_sub_tag": "credit limit increase form",
+      "confidence": 0.722,
+      "text": "Dear Credit Department,\n\nI am writing to request an increase in the credit limit for our account. My name is Virginia Kuffler, and I am the owner of Thorne & Co.. Our current credit limit is $10,000, and we are requesting an increase to $20"
+    },
+    {
+      "gold_industry": "finance",
+      "gold_domain": "Finance",
+      "gold_sub_tag": "purchase agreement",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.6302,
+      "text": "**Purchase Agreement**\n\n**Parties Involved:**\n- **Buyer:** Harborstone Financial\n- **Seller:** [Seller's Information]\n\n**Purchase Details:**\n- **Purchase Price:** [Amount]\n- **Account Number:** 7856321490\n- **Payment Terms:** Payment to be "
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Pharmaceuticals",
+      "gold_sub_tag": "medical certificate",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "medical certificate",
+      "confidence": 0.7443,
+      "text": "**Medical Certificate**\n\n**Patient Information:**\n- Name: Francis\n- Date of Birth: 1972-10-16\n- Medical Record Number: 19MAR22-00123\n\n**Issuing Physician:**\n- Name: Dr. Jane Smith\n\n**Diagnosis/Condition:**\n- Hypertension\n\n**Medications Pres"
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Ecommerce",
+      "gold_sub_tag": "employment verification",
+      "predicted_industry": "finance",
+      "predicted_sub_tag": "employment verification",
+      "confidence": 0.9503,
+      "text": "To Whom It May Concern,\n\nThis letter is to verify the employment of Ronald Piercy, employee ID 002371. Ronald has been employed with our company in a full-time position since 2015. He has been a valuable member of our team and has consisten"
+    },
+    {
+      "gold_industry": "finance",
+      "gold_domain": "Finance",
+      "gold_sub_tag": "tax return",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.6453,
+      "text": "**Tax Return Form**\n\n**Taxpayer Information**\n\n- **First Name:** Edgar\n- **Last Name:** Diaz\n- **Social Security Number:** 213-83-8820\n- **Address:** 289 Taverngreen Ct\n\n**Income Details**\n\n- **Wages:**\n- **Interest:**\n- **Dividends:**\n\n**D"
+    },
+    {
+      "gold_industry": "finance",
+      "gold_domain": "Finance",
+      "gold_sub_tag": "insurance policy",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.5031,
+      "text": "The insurance policy outlined below covers the account number 74182956, associated with the customer id 0007241893. The policy period begins on 01/01/2023 and ends on 12/31/2023. The policyholder can make payments using the credit debit car"
+    },
+    {
+      "gold_industry": "government",
+      "gold_domain": "Government",
+      "gold_sub_tag": "health insurance claim form",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "insurance claim form",
+      "confidence": 0.8983,
+      "text": "**Health Insurance Claim Form**\n\n**Patient Information**\n\n| Field                | Value                                    |\n|----------------------|------------------------------------------|\n| First Name           | Diana                "
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "medical history form",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.2796,
+      "text": "**Medical History Form**\n\nPatient Name: Jason Hutchins\n\nMedical Record Number: 0002947635\n\nDate of Birth: 1977-02-12\n\nGender: male\n\nAddress: 422 18th Ave W\n\nOccupation: driver sales worker or truck driver\n\nBlood Type: A positive\n\nReligious "
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "health history",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.7209,
+      "text": "Karen Mcmurry, with the medical record number 0004926835, was born on 2005-04-23. His gender is male. He is the beneficiary of the health plan with the number AET-7283-1492-65. His biometric identifier is BIO-5724891365. Karen's email addre"
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Identity Management",
+      "gold_sub_tag": "temporary password notification",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "temporary password notification",
+      "confidence": 0.5513,
+      "text": "**Temporary Password Notification**\n\n**Username:** WhitneyToler\n\n**Temporary Password:** Michael1995\n\n**Expiration Time:** 2025-06-27T04:04:35\n\n**Instructions:**\n\nYour temporary password has been generated and is valid until the expiration "
+    },
+    {
+      "gold_industry": "other",
+      "gold_domain": "Pharmaceuticals",
+      "gold_sub_tag": "prescription",
+      "predicted_industry": "healthcare",
+      "predicted_sub_tag": "prescription",
+      "confidence": 0.8007,
+      "text": "**Prescription**\n\n**Patient Information**\n\nName: Nichole Thomas\nDate of Birth: 1985-09-28\nEmail: nichole.thomas@aol.com\nPhone Number: (808) 304-7829\n\n**Prescriber Details**\n\nName: Dr. Jane Smith\nContact Information: (555) 123-4567\n\n**Medica"
+    },
+    {
+      "gold_industry": "healthcare",
+      "gold_domain": "Healthcare",
+      "gold_sub_tag": "biometric enrollment form",
+      "predicted_industry": "other",
+      "predicted_sub_tag": null,
+      "confidence": 0.7498,
+      "text": "I, Qiana, hereby consent to the collection of my biometric data for identification purposes. My date of birth is 1951-03-20. My biometric identifier is BIO-5738946210."
+    }
+  ],
   "canonicalization": {
     "granularity_tradeoff": [
       {
         "threshold": 0.5,
         "tags_before": 635,
         "tags_after": 635,
-        "tier2_accuracy": 0.90215
+        "tier2_accuracy": 0.9009
       },
       {
         "threshold": 0.35,
         "tags_before": 635,
-        "tags_after": 633,
-        "tier2_accuracy": 0.90402
+        "tags_after": 634,
+        "tier2_accuracy": 0.90184
       },
       {
         "threshold": 0.25,
         "tags_before": 635,
-        "tags_after": 628,
-        "tier2_accuracy": 0.90527
+        "tags_after": 625,
+        "tier2_accuracy": 0.90433
       },
       {
         "threshold": 0.18,
         "tags_before": 635,
-        "tags_after": 621,
-        "tier2_accuracy": 0.90994
+        "tags_after": 618,
+        "tier2_accuracy": 0.90838
       },
       {
         "threshold": 0.12,
         "tags_before": 635,
-        "tags_after": 601,
-        "tier2_accuracy": 0.91508
+        "tags_after": 598,
+        "tier2_accuracy": 0.91352
       },
       {
         "threshold": 0.08,
         "tags_before": 635,
-        "tags_after": 575,
-        "tier2_accuracy": 0.91976
+        "tags_after": 576,
+        "tier2_accuracy": 0.91711
       }
     ],
     "raw_granularity": {
       "tags": 635,
-      "tier2_accuracy": 0.90215
+      "tier2_accuracy": 0.9009
     },
     "recommended": {
       "threshold": 0.08,
-      "tags_after": 575,
-      "tier2_accuracy": 0.91976,
+      "tags_after": 576,
+      "tier2_accuracy": 0.91711,
       "merged_clusters": {
         "healthcare": [
+          [
+            "allergy information",
+            "allergy list"
+          ],
           [
             "bic code document",
             "swift code document"
@@ -422,11 +790,6 @@
             "patient education material"
           ],
           [
-            "health history",
-            "medical history",
-            "medical record"
-          ],
-          [
             "health history form",
             "medical history form"
           ],
@@ -435,22 +798,26 @@
             "medical imaging report"
           ],
           [
+            "medical history",
+            "medical record"
+          ],
+          [
             "pathology report",
             "pathology summary"
           ],
           [
-            "patient assessment",
-            "physical examination note"
+            "physical examination note",
+            "vital sign"
           ]
         ],
         "finance": [
           [
-            "account transfer",
-            "budget management"
-          ],
-          [
             "affidavit of no encumbrance",
             "affidavit of non mortgage"
+          ],
+          [
+            "asset allocation",
+            "portfolio report"
           ],
           [
             "bank service",
@@ -466,12 +833,7 @@
           ],
           [
             "banking service",
-            "personal solution",
-            "transaction history"
-          ],
-          [
-            "banking solution",
-            "retail solution"
+            "personal product"
           ],
           [
             "checking account",
@@ -498,6 +860,10 @@
             "credit product"
           ],
           [
+            "credit card renewal form",
+            "debit card renewal form"
+          ],
+          [
             "credit card replacement form",
             "debit card replacement form"
           ],
@@ -506,24 +872,24 @@
             "credit score report"
           ],
           [
+            "financial planning",
+            "retirement planning"
+          ],
+          [
+            "financial solution",
+            "saving account"
+          ],
+          [
             "financial statement",
             "investment banking"
           ],
           [
-            "investment criteria",
-            "investment service"
+            "fund prospectu",
+            "investment memorandum"
           ],
           [
             "investment performance report",
             "performance report"
-          ],
-          [
-            "investment policy",
-            "retirement planning"
-          ],
-          [
-            "investment portfolio",
-            "investment product"
           ],
           [
             "market analysi",
@@ -538,16 +904,12 @@
             "mortgage agreement"
           ],
           [
-            "mortgage product",
-            "mortgage service"
+            "mortgage service",
+            "mortgage solution"
           ],
           [
             "payment receipt",
             "payment schedule"
-          ],
-          [
-            "personal product",
-            "saving account"
           ],
           [
             "prequalification form",
@@ -564,6 +926,10 @@
           [
             "tax return",
             "tax return form e g irs 1040"
+          ],
+          [
+            "transaction history",
+            "transaction record"
           ],
           [
             "wealth product",
