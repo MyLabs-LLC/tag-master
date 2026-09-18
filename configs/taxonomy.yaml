@@ -139,14 +139,8 @@ split:
   stratify_by: [top, locale, document_format]
 
 features:
-  word_ngram_max: 2
-  word_min_df: 2
-  word_max_features: 400000
-  char_ngram: [3, 5]
-  char_min_df: 3
-  char_max_features: 300000
-  text_truncate_chars: 4000
   heading_chars: 400
+
   embedding:
     enabled: true
     repo_id: Xenova/all-MiniLM-L6-v2
@@ -154,6 +148,34 @@ features:
     max_tokens: 256
     batch_size: 64
     threads: 4
+    # Dense block is scaled before being concatenated to the L2-normalised
+    # sparse block so 384 dense dimensions do not dominate under one shared
+    # regularisation strength.
+    scale: 0.6
+
+  # Two profiles rather than one shared feature space. Tier 1 is a topical
+  # 4-class problem over all 140k training rows, where words suffice and
+  # character n-grams would cost ~700M nonzeros. Tier 2 discriminates between
+  # near-duplicate form names within one industry (at most 15k rows), where
+  # sub-word shape carries real signal and the matrices stay small.
+  tier1:
+    word_chars: 2500
+    word_ngram_max: 2
+    word_min_df: 3
+    word_max_features: 300000
+    char_ngram: null
+    use_embeddings: true
+
+  tier2:
+    word_chars: 2500
+    word_ngram_max: 2
+    word_min_df: 2
+    word_max_features: 300000
+    char_ngram: [3, 5]
+    char_chars: 1200
+    char_min_df: 3
+    char_max_features: 300000
+    use_embeddings: true
 
 tier1:
   # Hard negatives get this multiplier on top of balanced class weights.
@@ -163,8 +185,9 @@ tier1:
 tier2:
   C_grid: [1.0, 2.0, 4.0, 8.0]
   # Ensemble members: discriminative head, Rocchio centroid, heading matcher,
-  # and the label-as-text prototype scorer.
-  ensemble_weight_grid: [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+  # verbatim matcher, and the label-as-text prototype scorer. Searched by
+  # multi-start coordinate ascent, not exhaustively.
+  ensemble_weight_grid: [0.0, 0.1, 0.2, 0.35, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0]
 
 hierarchy:
   # score(top, tag) = log P(top|x) + lambda * log P(tag|x, top)
@@ -172,8 +195,10 @@ hierarchy:
 
 canonicalize:
   # Merge only tags the model empirically cannot separate. Thresholds are on
-  # symmetric dev-set confusion mass; the average-linkage guard and cluster cap
-  # stop merges from chaining across unrelated tags.
+  # symmetric dev-set confusion mass.
   thresholds: [0.5, 0.35, 0.25, 0.18, 0.12, 0.08]
-  average_linkage_ratio: 0.5
+  # Complete linkage: every cross-cluster pair must clear threshold *
+  # linkage_ratio, so a single strong link cannot drag in tags that were never
+  # confused with each other. This is what stops merges from chaining.
+  linkage_ratio: 0.5
   max_cluster_size: 8

@@ -48,6 +48,8 @@ _NON_TITLE = re.compile(r"^(```|~~~|\||[-=_*\s]+$)")
 
 _TITLE_STOP = re.compile(r"[.!?]\s")
 
+_IDF_FLOOR = 0.01
+
 
 def tokenize(text: str) -> list[str]:
     return _WORD.findall(text.lower())
@@ -149,7 +151,10 @@ class HeadingMatcher:
         )
 
     def _idf(self, token: str) -> float:
-        return self.idf.get(token, self.default_idf)
+        # Floored: a token present in every training document still carries
+        # positional and heading information, and a zero would make any tag
+        # built only from such tokens permanently unselectable.
+        return max(self.idf.get(token, self.default_idf), _IDF_FLOOR)
 
     def _tag_cache(self, top: str) -> list[tuple[frozenset[str], float]]:
         tags = self.tags_by_top.get(top, [])
@@ -177,29 +182,30 @@ class HeadingMatcher:
         body_len = max(len(body_norm), 1)
 
         for i, (toks, total) in enumerate(self._tag_cache(top)):
-            if not toks or total <= 0:
+            if not toks:
                 continue
-
-            got = 0.0
-            for t in toks:
-                w = self._idf(t)
-                if t in heading_tokens:
-                    got += 2.0 * w
-                elif t in body_tokens:
-                    got += w
-            score = got / (2.0 * total)
-
             tag = tags[i]
-            if tag in heading_norms:
-                score += 1.0
-            elif any(toks <= hs for hs in heading_token_sets if hs):
-                # "Brokerage and Confidentiality Agreement" contains
-                # `confidentiality agreement`: strong, but weaker than equality.
-                score += 0.5
-            heading[i] = score
 
-            # Verbatim channel: only worth a substring scan when every token of
-            # the tag is present, which prunes the vast majority of candidates.
+            if total > 0:
+                got = 0.0
+                for t in toks:
+                    w = self._idf(t)
+                    if t in heading_tokens:
+                        got += 2.0 * w
+                    elif t in body_tokens:
+                        got += w
+                score = got / (2.0 * total)
+                if tag in heading_norms:
+                    score += 1.0
+                elif any(toks <= hs for hs in heading_token_sets if hs):
+                    # "Brokerage and Confidentiality Agreement" contains
+                    # `confidentiality agreement`: strong, but weaker than equality.
+                    score += 0.5
+                heading[i] = score
+
+            # Verbatim is deliberately independent of the heading channel's IDF
+            # weighting. A substring scan is only worth running when every token
+            # of the tag is present, which prunes the vast majority of candidates.
             if toks <= body_tokens:
                 pos = body_norm.find(tag)
                 if pos >= 0:

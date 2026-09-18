@@ -37,6 +37,30 @@ def prepare(
     typer.echo(f"report -> {cfg.paths.reports / 'prepare.json'}")
 
 
+@app.command("warm-cache")
+def warm_cache(config: Optional[Path] = ConfigOpt) -> None:
+    """Pre-compute and cache document embeddings for every split.
+
+    Optional but worthwhile: embedding runs at roughly 58 documents/second on
+    four CPU threads, so doing it once up front keeps later training and tuning
+    runs fast.
+    """
+    from .data import get_splits
+    from .embed import build_embedder
+    from .taxonomy import build_taxonomy
+
+    cfg = load_config(config)
+    embedder = build_embedder(cfg)
+    if embedder is None:
+        typer.echo("embeddings are disabled in the config; nothing to warm")
+        return
+    splits = get_splits(cfg, build_taxonomy(cfg))
+    for name, frame in splits.items():
+        typer.echo(f"{name}: {len(frame)} rows")
+        embedder.encode_cached([(t or "")[:2000] for t in frame.text.tolist()], name)
+    typer.echo(f"cache -> {cfg.paths.cache}")
+
+
 @app.command()
 def train(
     config: Optional[Path] = ConfigOpt,
